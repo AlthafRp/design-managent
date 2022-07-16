@@ -9,8 +9,7 @@
             <div class="table-responsive">
               <a href="<?php echo e(route('createodr')); ?>" class="btn btn-icon icon-left btn-primary mb-3"><i class="far fa-edit"></i> Create New Order</a>
               <table class="table table-bordered table-md">
-                <tbody>
-                <tr>
+                <tbody><tr>
                   <th>No</th>
                   <th>No Sales Order</th>
                   <th>Nama Institusi</th>
@@ -19,9 +18,9 @@
                   <th>File</th>
                   <th>Editor</th>
                 </tr>
-                <?php $no = 1; ?>
-                <?php $__currentLoopData = $odr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <tr>
+                  <?php $no = 1; ?>
+                  <?php $__currentLoopData = $odr; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                   <td><?php echo e($no++); ?></td>
                   <td><?php echo e($item->no_so); ?></td>
                   <td><?php echo e($item->institusi); ?></td>
@@ -29,8 +28,8 @@
                   <td></td>
                   <td></td>
                   <td></td>
+                  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </tr>
-                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </tbody></table>
             </div>
           </div>

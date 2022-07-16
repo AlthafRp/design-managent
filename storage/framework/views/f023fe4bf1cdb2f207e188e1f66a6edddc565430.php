@@ -1,17 +1,4 @@
 
-<?php $__env->startSection('style'); ?>
-  <style>
-    #number_Q {
-      display: none;
-    }
-    #number_A {
-      display: none;
-    }
-    #number_B {
-      display: none;
-    }
-  </style>
-<?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
     <section class="section">
         <div class="card">
@@ -22,35 +9,29 @@
             <form action="<?php echo e(route ('simpan-up')); ?>" method="post" enctype="multipart/form-data">
               <?php echo e(csrf_field()); ?>
 
-              
               <div class="form-group row">
-                <label for="inputTimeline" class="col-sm-3 col-form-label" style="color:black;font-weight:bold">Timeline</label>
+                <label for="inputEmail3" class="col-sm-3 col-form-label">No Dokumen</label>
                 <div class="col-sm-9">
-                  <select class="form-control" id="timeline" name="no_so">
-                    <option value="" for="angka" selected readonly>-=- Timeline -=-</option>
-                    <?php $__currentLoopData = $au; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                    <option value="<?php echo e($item->id); ?>"><?php echo e($item->no_so); ?></option>    
-                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                  </select>
-                    <div class="form-group pt-3" id="number_Q">
-                      <label>
-                        Tanggal Upload <strong id="title_Q"></strong>
-                      </label>
-                      <input type="text" class="form-control" value="<?php echo e($item->tgl_order); ?>" readonly>
-                    </div>
-                    <div class="form-group pt-3" id="number_A">
-                      <label>
-                        Nama Institusi <strong id="title_A"></strong>
-                      </label>
-                      <input type="text" class="form-control" value="<?php echo e($item->institusi); ?>" readonly>
-                    </div>
-                    <div class="form-group pt-3" id="number_B">
-                      <label>
-                        Nama Project <strong id="title_B"></strong>
-                      </label>
-                      <input type="text" class="form-control" value="<?php echo e($item->project); ?>" readonly>
-                    </div>
-                  </div>
+                  <input type="text" class="form-control" name="no_doc" id="inputEmail3" value="<?php echo e(date('d/m/Y').'/'.$kd); ?>" readonly>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail2" class="col-sm-3 col-form-label">Date</label>
+                <div class="col-sm-9">
+                <input type="date" class="form-control" name="tgl_up" id="inputEmail2">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Nama Institusi</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="institusi" id="inputEmail3" placeholder="Institusi">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Nama Project</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" name="project" id="inputEmail3" placeholder="Project">
+                </div>
               </div>
               <div class="form-group row">
                 <label for="inputEmail5" class="col-sm-3 col-form-label">Jenis Dokumen</label>
@@ -73,19 +54,5 @@
           </div>
         </div>
     </section>
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('js'); ?>
-<script>
-  $( document ).ready(function() {
-    $('#timeline').on('change', function() {
-      $('#number_Q').css('display', 'block')
-      $('#title_Q').text(this.value)
-      $('#number_A').css('display', 'block')
-      $('#title_A').text(this.value)
-      $('#number_B').css('display', 'block')
-      $('#title_B').text(this.value)
-    })
-  });
-</script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.main', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\althafrp\postgreProject\app_wams2\resources\views/upload.blade.php ENDPATH**/ ?>
