@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UM;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class InputwoController extends Controller
 {
     public function index()
     {
-        return view('inputwo');
+        return view('UM.inputwo');
     }
 }

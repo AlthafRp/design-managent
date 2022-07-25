@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\ApprovalController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\InputwoController;
-use App\Http\Controllers\ListdController;
-use App\Http\Controllers\ReportpController;
+use App\Http\Controllers\AM\AmDashboardController;
+use App\Http\Controllers\AM\SalesOptyController;
+use App\Http\Controllers\AM\SalesOrderController;
+use App\Http\Controllers\UM\ApprovalController;
+use App\Http\Controllers\UM\InputwoController;
+use App\Http\Controllers\UM\ListdController;
+use App\Http\Controllers\UM\ReportpController;
+use App\Http\Controllers\UM\UmDashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +27,16 @@ Route::get('/', function () {
 
 // route::get('/order', [IndexController::class, 'index'])->name('order');
 
-Route::get('/dashboard', [DashboardController::class,'index']);
+// UM
+Route::get('/um/dashboard', [UmDashboardController::class,'index']);
 Route::get('/approval', [ApprovalController::class,'index']);
+Route::get('/detailapproval/{id}', [ApprovalController::class,'show']);
 Route::get('/reportp', [ReportpController::class,'index']);
 Route::get('/inputwo', [InputwoController::class,'index']);
 Route::get('/listd', [ListdController::class,'index']);
+// end UM
+
+// AM/SALES
+Route::get('/am/dashboard', [AmDashboardController::class,'index']);
+Route::get('/slsorder', [SalesOrderController::class,'index']);
+Route::get('/slsopty', [SalesOptyController::class,'index']);

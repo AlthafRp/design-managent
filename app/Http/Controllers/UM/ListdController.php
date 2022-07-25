@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\UM;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class ListdController extends Controller
 {
     public function index()
     {
-        return view('listd');
+        return view('UM.listd');
     }
 }

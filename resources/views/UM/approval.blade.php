@@ -23,16 +23,18 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($data as $item)    
                     <tr>
+                      <td>{{$loop->iteration}}</td>
+                      <td>B{{$item->kode_project}}</td>
+                      <td>{{$item->institusi}}</td>
+                      <td>{{$item->project}}</td>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>{{$item->hps}}</td>
+                      <td>{{$item->status}}</td>
+                      <td><a href="{{url('/detailapproval', $item->id)}}">Detail</a></td>
                     </tr>
+                    @endforeach
                   </tbody>
             </table>
         </div>
